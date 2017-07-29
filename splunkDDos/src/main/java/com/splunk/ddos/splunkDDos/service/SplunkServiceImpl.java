@@ -27,9 +27,10 @@ public class SplunkServiceImpl implements SplunkService {
 	private EmailDTO populateMailDTO(final String ipAdd) {
 		final EmailDTO dto = new EmailDTO();
 		dto.setBody("This ipAdd has been blocked for next 30 minutes due to DDOs attack detection " + ipAdd);
-		dto.setFromAdd("meghu@gmail.com");
-		dto.setSubject("DDod Attack detected");
-		dto.setToAdd("meghanajagruthi@gmail.com");
+		dto.setFromAdd("teja.divya99@gmail.com");
+		dto.setSubject("DDos Attack detected");
+		// dto.setToAdd("meghanajagruthi@gmail.com");
+		dto.setToAdd("teja.divya99@gmail.com");
 		dto.setToName("Meghu DDos Expert");
 		return dto;
 	}
