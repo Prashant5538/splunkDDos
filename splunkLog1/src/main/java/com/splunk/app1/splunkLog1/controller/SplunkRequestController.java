@@ -17,8 +17,8 @@ public class SplunkRequestController {
 
 	@RequestMapping(value = "/id", method = RequestMethod.GET)
 	public ResponseEntity<String> giveMyUniqueId() {
-		final String resp = "request that we received is bein made from ip->" + request.getIpAddress() + " having id ->"
-				+ request.getRequestId();
+		final String resp = "request that we received is bein made from ip->," + request.getIpAddress()
+				+ ", having id ->," + request.getRequestId();
 		return new ResponseEntity<>(resp, HttpStatus.OK);
 	}
 
