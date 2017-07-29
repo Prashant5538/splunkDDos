@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'application'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
@@ -29,3 +30,8 @@ dependencies {
 	compile group: 'com.sendgrid', name: 'sendgrid-java', version: '2.2.1'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+applicationDefaultJvmArgs = [
+   "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=14040"
+]
+

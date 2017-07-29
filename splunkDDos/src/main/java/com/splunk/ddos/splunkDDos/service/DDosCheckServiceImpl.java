@@ -13,7 +13,11 @@ public class DDosCheckServiceImpl implements DDosCheckService {
 
 	@Override
 	public Boolean checkIpAdd(final String ipAdd) {
-		return cacheService.getObjectFromCache(ipAdd, Boolean.class);
+		final Boolean resp = cacheService.getObjectFromCache(ipAdd, Boolean.class);
+		if (resp == null) {
+			return false;
+		}
+		return resp;
 
 	}
 

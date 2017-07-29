@@ -19,7 +19,7 @@ public class SplunkServiceImpl implements SplunkService {
 	@Override
 	public void markIpAsBlackListed(final String ipAdd) {
 		// put the data in redis to be used by other service
-		cacheService.putInCacheWithTTL(ipAdd, Boolean.TRUE, 30, TimeUnit.MINUTES);
+		cacheService.putInCacheWithTTL(ipAdd, Boolean.FALSE, 30, TimeUnit.MINUTES);
 		// call sendgrid service to send mail
 		senderService.triggerMail(populateMailDTO(ipAdd));
 	}

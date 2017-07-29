@@ -9,9 +9,11 @@ import com.splunk.ddos.splunkDDos.dto.EmailDTO;
 @Component
 public class SendgridFactory {
 
-	@Value("{mail.sendgrid.passwd}")
+	@Value("${mail.sendgrid.apikey}")
+	private String apiKey;
+	@Value("${mail.sendgrid.passwd}")
 	private String passwd;
-	@Value("{mail.sendgrid.userName}")
+	@Value("${mail.sendgrid.userName}")
 	private String userName;
 
 	public SendGrid.Email createSendgridEmailDTO(final EmailDTO dto) {
@@ -26,6 +28,7 @@ public class SendgridFactory {
 
 	public SendGrid createSendGridObj() {
 		final SendGrid sendgrid = new SendGrid(userName, passwd);
+		// final SendGrid sendgrid = new SendGrid(apiKey);
 		return sendgrid;
 	}
 

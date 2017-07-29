@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.splunk.ddos.splunkDDos.service.SplunkService;
@@ -16,7 +17,7 @@ public class DDosSplunkController {
 	private SplunkService splunkService;
 
 	@RequestMapping(value = "/splunk/ddos", method = RequestMethod.GET)
-	public ResponseEntity<String> checkStatus(final String ipAdd) {
+	public ResponseEntity<String> checkStatus(@RequestParam(name = "ipAdd", required = false) final String ipAdd) {
 		splunkService.markIpAsBlackListed(ipAdd);
 		return new ResponseEntity<>("OK", HttpStatus.OK);
 	}

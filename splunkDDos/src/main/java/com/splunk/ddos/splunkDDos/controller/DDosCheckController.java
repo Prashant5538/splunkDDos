@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.splunk.ddos.splunkDDos.service.DDosCheckService;
@@ -16,7 +17,7 @@ public class DDosCheckController {
 	private DDosCheckService ddosCheckService;
 
 	@RequestMapping(value = "/check/ddos", method = RequestMethod.GET)
-	public ResponseEntity<Boolean> checkStatus(final String ipAdd) {
+	public ResponseEntity<Boolean> checkStatus(@RequestParam(name = "ipAdd", required = false) final String ipAdd) {
 		return new ResponseEntity<>(ddosCheckService.checkIpAdd(ipAdd), HttpStatus.OK);
 	}
 
