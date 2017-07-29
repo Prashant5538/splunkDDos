@@ -25,5 +25,6 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.codehaus.jackson:jackson-jaxrs:1.9.0')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
